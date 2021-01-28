@@ -1,0 +1,83 @@
+$ease: cubic-bezier(.645, .045, .355, 1);
+$bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+@mixin transition($time: 0.2s) {
+  transition-duration: $time;
+  transition-timing-function: $ease;
+}
+
+
+
+.notification-bar {
+  position: absolute;
+  right: 0;
+  padding-right: 1.5em;
+  top: 1.5em;
+  z-index: 10000;
+  pointer-events: none;
+  overflow-x: hidden;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media screen and (max-width: 1024px){
+    max-width: 85vw;
+  }
+
+  .notification {
+    display: flex;
+    align-items: center;
+    pointer-events: all;
+    margin-bottom: .7rem;
+    border-radius: 7px;
+    position: relative;
+    transition: all 0.2s $ease;
+    width: max-content;
+    max-width: 100%;
+    line-height: 1.5em;
+    padding: 10px 0 10px 18px;
+    font-size: .8rem;
+    font-weight: 400;
+
+    .material-icons {
+      font-size: 1.4rem;
+      line-height: 1.2rem;
+      margin-right: 10px;
+
+      &.close-btn {
+        font-size: 1.1rem;
+        display: inline-block;
+        justify-self: flex-end;
+        margin: 0;
+        padding: 5px 10px 4px 10px;
+        cursor: pointer;
+        @include transition();
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    &__success {
+      background: mediumseagreen;
+      color: #fff;
+    }
+
+    &__error {
+      background: indianred;
+      color: #fff;
+    }
+
+    &__info {
+      background: darkslategrey;
+      color: #fff;
+    }
+
+    &__warning {
+      background: yellow;
+      color: #000;
+    }
+  }
+}

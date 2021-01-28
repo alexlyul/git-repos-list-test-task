@@ -1,0 +1,36 @@
+@import "colors";
+
+.button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: $transition;
+  outline: none;
+  border: 2px solid $input-border-color;
+  color: #99A3BA;
+  cursor: pointer;
+  background-color: $button-color;
+  user-select: none;
+
+  &--compact {
+    padding: 5px;
+    font-size: .7em;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: $focus-color;
+  }
+
+  &:focus {
+    background-color: $focus-color;
+    color: white;
+    outline: none;
+    border-color: $focus-color;
+  }
+
+  &:disabled {
+    filter: grayscale(1);
+    opacity: 0.85;
+    cursor: not-allowed;
+  }
+}

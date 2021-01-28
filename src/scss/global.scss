@@ -1,0 +1,27 @@
+@import "node_modules/reset-css/sass/_reset.scss";
+@import "colors";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  font-family: 'Mukta Malar', sans-serif;
+  background: $global-background;
+  color: $text-color;
+  max-height: 100vh;
+}
+
+
+.hidden, [hidden] {
+  display: none !important;
+}
+
+
+h1 {
+  font-size: 20px;
+  line-height: 1.5em;
+}
