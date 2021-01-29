@@ -74,14 +74,7 @@ $borderRadius: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-}
-</style>
-
-<style lang="scss">
-.c-input-submit {
-  .c-input-text > .c-input-text__field {
-    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 </style>
