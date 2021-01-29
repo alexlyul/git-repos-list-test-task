@@ -1,22 +1,24 @@
 <template>
-  <div v-if="value.pages" class="c-pagination">
+  <div v-if="value.pages" :class="$style['c-pagination']">
 
-    <div class="c-pagination__row">
+    <div :class="$style['c-pagination__row']">
       <button @click="paginate(value.page - 1, value.perPage)"
-              class="c-pagination__btn"><i class="material-icons">arrow_back</i> Prev
+              :class="$style['c-pagination__btn']"><i class="material-icons"
+                                                      :class="$style.icon">arrow_back</i> Prev
       </button>
       <div>Current page: {{ value.page }}</div>
       <button @click="paginate(value.page + 1, value.perPage)"
-              class="c-pagination__btn"><i class="material-icons">arrow_forward</i> Next
+              :class="$style['c-pagination__btn']"><i class="material-icons"
+                                                      :class="$style.icon">arrow_forward</i> Next
       </button>
     </div>
 
-    <div class="c-pagination__row">
+    <div :class="$style['c-pagination__row']">
       <div>Per page:</div>
       <button v-for="option in perPageOptions"
               :disabled="option === value.perPage"
               @click="paginate(value.page, option)"
-              class="c-pagination__btn"
+              :class="$style['c-pagination__btn']"
               :key="option">{{ option }}
       </button>
     </div>
@@ -58,7 +60,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import "../scss/button";
 
 .c-pagination {
@@ -79,11 +81,11 @@ export default {
     margin: 0 5px;
     padding: 5px;
     min-width: 2em;
+  }
 
-    .material-icons {
-      font-size: 14px;
-      line-height: 14px;
-    }
+  .icon {
+    font-size: 14px;
+    line-height: 14px;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="c-input-text">
+  <div :class="$style['c-input-text']">
     <label :for="id" hidden>{{ label }}</label>
     <input
       :id="id"
@@ -9,7 +9,7 @@
       @keypress.enter="action && action($event.target.value)"
       @input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
-      class="c-input-text__field"
+      :class="$style['c-input-text__field']"
     >
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .c-input-text {
   @import "../scss/colors";
   $borderRadius: 10px;

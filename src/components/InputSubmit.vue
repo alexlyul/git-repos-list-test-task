@@ -1,5 +1,5 @@
 <template>
-  <div class="c-input-submit">
+  <div :class="$style['c-input-submit']" class="c-input-submit">
     <InputText :label="label"
                name="organization"
                @input="v => $emit('input', v)"
@@ -10,7 +10,7 @@
     <Btn @click="submit()"
          :is-preloading="isPreloading"
          :disabled="disabled"
-         class="c-input-submit__button"
+         :class="$style['c-input-submit__button']"
     >{{ buttonText }}</Btn>
   </div>
 </template>
@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import "../scss/colors";
 @import "../scss/button";
 
@@ -68,16 +68,20 @@ $borderRadius: 10px;
   flex-direction: row;
   flex-wrap: nowrap;
 
-  .c-input-text > .c-input-text__field {
-    margin-right: 10px;
-  }
-
   &__button {
     @extend .button;
     border-radius: $borderRadius;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+</style>
+
+<style lang="scss">
+.c-input-submit {
+  .c-input-text > .c-input-text__field {
+    margin-right: 10px;
   }
 }
 </style>

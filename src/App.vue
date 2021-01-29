@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" :class="$style.app">
     <h1>View Github repos of any organization here!</h1>
-    <div class="search-bar">
+    <div :class="$style['search-bar']">
       <InputSwitch v-model="repositoriesType"
                    :options="typesOptions"
       />
@@ -20,7 +20,7 @@
       />
     </div>
 
-    <div class="table" v-if="repos.length">
+    <div :class="$style.table" v-if="repos.length">
       <Table :cols="tableCols"
              :is-preloading="isLoading"
              :rows="repos"
@@ -28,7 +28,9 @@
              max-height="700px"/>
     </div>
 
-    <Pagination v-model="pagination" @input="loadRepos()"/>
+    <Pagination v-model="pagination"
+                @input="loadRepos()"
+                v-if="repos.length"/>
   </div>
 </template>
 
@@ -151,8 +153,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-#app {
+<style lang="scss" module>
+
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,12 +178,9 @@ export default {
   }
 }
 
-.mb-10 {
-  margin-bottom: 10px;
-}
-
 .table {
   margin: 30px 0;
   max-width: 1024px;
+  width: 100%;
 }
 </style>

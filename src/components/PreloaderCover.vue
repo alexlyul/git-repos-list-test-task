@@ -1,12 +1,15 @@
 <template>
-  <div class="c-preloader-wrapper" ref="wrapper">
-    <div :class="{ 'inner-component': isPreloading }">
+  <div :class="$style['c-preloader-wrapper']" ref="wrapper">
+    <div :class="{ [$style['inner-component']]: isPreloading }">
       <slot>{{ placeholder ? placeholder : 'No component...' }}</slot>
     </div>
     <transition name="opacity">
-      <div v-show="isPreloading" class="c-preloader-wrapper__cover" @click.self.prevent>
+      <div v-show="isPreloading"
+           :class="$style['c-preloader-wrapper__cover']"
+           @click.self.prevent
+      >
         <img src="../assets/circles-loader.svg"
-             class="c-preloader-circle"
+             :class="$style['c-preloader-circle']"
              alt="null">
       </div>
     </transition>
@@ -27,7 +30,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @import "../scss/animations";
 
 .c-preloader-circle {
@@ -37,11 +40,6 @@ export default {
 .c-preloader-wrapper {
   position: relative;
   height: available;
-
-  .inner-component {
-    z-index: 1;
-    min-height: 40px;
-  }
 
   &__cover {
     user-select: none;
@@ -56,5 +54,10 @@ export default {
     align-items: center;
     justify-content: center;
   }
+}
+
+.inner-component {
+  z-index: 1;
+  min-height: 40px;
 }
 </style>

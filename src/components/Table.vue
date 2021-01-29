@@ -1,7 +1,7 @@
 <template>
   <PreloaderCover :is-preloading="isPreloading">
-    <div class="c-table__wrapper" :style="{ maxHeight: maxHeight }">
-      <table class="c-table">
+    <div :class="$style['c-table__wrapper']" :style="{ maxHeight: maxHeight }">
+      <table :class="$style['c-table']">
         <thead>
         <tr v-if="cols.length">
           <th v-for="col in cols"
@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 
 @import 'node_modules/bootstrap/scss/_functions';
 @import 'node_modules/bootstrap/scss/_variables';
@@ -63,7 +63,7 @@ export default {
   position: relative;
 }
 
-table.c-table {
+.c-table {
   @extend .table;
   @extend .table-striped;
   @extend .thead-light;

@@ -1,11 +1,11 @@
 <template>
   <button v-bind="$attrs"
           v-on="$listeners"
-          class="c-btn"
+          :class="$style['c-btn']"
   >
     <img v-show="isPreloading"
          src="../assets/circles-loader.svg"
-         class="c-btn__preloader"
+         :class="$style['c-btn__preloader']"
          alt="null">
     <slot></slot>
   </button>
@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import "../scss/button";
 @import "../scss/colors";
 @import "../scss/animations";
@@ -58,13 +58,12 @@ export default {
     opacity: 0.85;
     cursor: not-allowed;
   }
+}
 
-  &__preloader {
-    animation: rotating 2s linear infinite;
-    width: 1em;
-    height: auto;
-    margin-right: .5em;
-  }
-
+.c-btn__preloader {
+  animation: rotating 2s linear infinite;
+  width: 1em;
+  height: auto;
+  margin-right: .5em;
 }
 </style>

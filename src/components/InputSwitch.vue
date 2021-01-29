@@ -1,11 +1,11 @@
 <template>
-  <ul class="c-input-switch">
+  <ul :class="$style['c-input-switch']">
     <li v-for="option of options"
         :key="option.value"
         @click="$emit('input', option.value)"
         :class="{
-          'c-input-switch__item': true,
-          'c-input-switch__item--active': option.value === passedModel
+          [$style['c-input-switch__item']]: true,
+          [$style['c-input-switch__item--active']]: option.value === passedModel
         }"
     >{{ option.label }}
     </li>
@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import "../scss/colors";
 
 $borderRadius: 10px;
